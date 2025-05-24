@@ -6,9 +6,15 @@ import {
   NavbarBrand,
   NavbarItem,
   NavbarMenuItem,
-} from "@heroui/navbar";
-import { Button } from "@heroui/button";
-import { Link } from "@heroui/link";
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+  Button,
+  Avatar,
+  Link
+} from "@heroui/react";
+
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
@@ -19,11 +25,14 @@ import {
   TwitterIcon,
   GithubIcon,
   DiscordIcon,
-  HeartFilledIcon,
   Logo,
 } from "@/components/icons";
+import { useUser } from "@/lib/hooks/useUser";
+import { useLogout } from "@/lib/hooks/useLogout";
 
 export const Navbar = () => {
+  const { user } = useUser();
+  const handleLogout = useLogout();
 
   return (
     <HeroUINavbar maxWidth="xl" position="sticky">
@@ -33,7 +42,7 @@ export const Navbar = () => {
         <NavbarBrand className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo />
-            <p className="font-bold text-inherit">Zismail Shop</p>
+            <p className="hidden sm:flex basis-1/5 font-bold text-inherit">Zismail Shop</p>
           </NextLink>
         </NavbarBrand>
         {/* End Braner */}
@@ -73,36 +82,92 @@ export const Navbar = () => {
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem>
-          <Button
-            isExternal
-            as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100"
-            href={siteConfig.links.sponsor}
-            startContent={<HeartFilledIcon className="text-danger" />}
-            variant="flat"
-          >
-            Sing in
-          </Button>
+          {user ? (
+            <Dropdown placement="bottom-end">
+              <DropdownTrigger>
+                <Avatar
+                  isBordered
+                  as="button"
+                  className="transition-transform"
+                  color="secondary"
+                  name={user.name || user.email || "User"}
+                  size="sm"
+                  src={user.avatar_url || "https://i.pravatar.cc/150?u=a04258a2462d826712d"}
+                />
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Profile Actions" variant="flat">
+                <DropdownItem key="profile" className="h-14 gap-2">
+                  <p className="font-semibold">Signed in as</p>
+                  <p className="font-semibold">{user.email}</p>
+                </DropdownItem>
+                <DropdownItem key="settings">My Settings</DropdownItem>
+                <DropdownItem
+                  key="logout"
+                  color="danger"
+                  onClick={handleLogout}
+                >
+                  Log Out
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          ) : (
+            <Button
+              as={NextLink}
+              href={siteConfig.routes.login}
+              className="text-sm font-normal text-default-600 bg-default-100"
+              variant="flat"
+            >
+              Sign in
+            </Button>
+          )}
         </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-
         {/* <Link isExternal href={siteConfig.links.github}>
           <GithubIcon className="text-default-500" />
         </Link> */}
         <ThemeSwitch />
 
         <NavbarItem>
-          <Button
-            isExternal
-            as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100"
-            href={siteConfig.links.sponsor}
-            variant="flat"
-          >
-            Sing in
-          </Button>
+          {user ? (
+            <Dropdown placement="bottom-end">
+              <DropdownTrigger>
+                <Avatar
+                  isBordered
+                  as="button"
+                  className="transition-transform"
+                  color="secondary"
+                  name={user.name || user.email || "User"}
+                  size="sm"
+                  src={user.avatar_url || "https://i.pravatar.cc/150?u=a04258a2462d826712d"}
+                />
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Profile Actions" variant="flat">
+                <DropdownItem key="profile" className="h-14 gap-2">
+                  <p className="font-semibold">Signed in as</p>
+                  <p className="font-semibold">{user.email}</p>
+                </DropdownItem>
+                <DropdownItem key="settings">My Settings</DropdownItem>
+                <DropdownItem
+                  key="logout"
+                  color="danger"
+                  onClick={handleLogout}
+                >
+                  Log Out
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          ) : (
+            <Button
+              as={NextLink}
+              href={siteConfig.routes.login}
+              className="text-sm font-normal text-default-600 bg-default-100"
+              variant="flat"
+            >
+              Sign in
+            </Button>
+          )}
         </NavbarItem>
       </NavbarContent>
 
@@ -129,7 +194,6 @@ export const Navbar = () => {
         </div>
       </NavbarMenu>
       {/* End Responsive Navbar Menu */}
-
     </HeroUINavbar>
   );
 };

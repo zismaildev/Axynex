@@ -1,13 +1,9 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + HeroUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Zismail Shop",
+  description: "Zismail Shop is a modern, responsive web application built with Next.js and NextUI, designed to showcase beautiful UI, fast performance, and seamless experience on every device.",
   navItems: [
-    {
-      label: "Home",
-      href: "/",
-    },
     {
       label: "Docs",
       href: "/docs",
@@ -61,12 +57,18 @@ export const siteConfig = {
     },
   ],
 
+  routes: {
+    login: "auth/login",
+  },
 
   links: {
-    github: "https://github.com/heroui-inc/heroui",
+    facebook: "https://www.facebook.com/zismaildev",
+    youtube: "https://www.youtube.com/channel/UCzewwrLueNmJRRu-OMjGRnA",
+    github: "https://github.com/zismaildev",
+    discord: "https://discord.gg/vArzFEfTff",
+
     twitter: "https://twitter.com/hero_ui",
     docs: "https://heroui.com",
-    discord: "https://discord.gg/9b6yyZKmH4",
     sponsor: "https://patreon.com/jrgarciadev",
   },
 };

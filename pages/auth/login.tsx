@@ -1,0 +1,84 @@
+import React, { useState } from 'react';
+import { signInWithEmail, signInWithGoogle } from '@/lib/auth';
+import DefaultLayout from "@/layouts/default";
+import { Form, Input, Button } from "@heroui/react";
+import { GoogleIcon } from "@/components/icons";
+
+export default function LoginPage() {
+  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
+  const [error, setError] = useState('');
+
+  const handleEmailLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const { error } = await signInWithEmail(username, password);
+    if (error) setError(error.message);
+    else window.location.href = '/';
+  };
+
+  const handleGoogleLogin = async () => {
+    const { error } = await signInWithGoogle();
+    if (error) setError(error.message);
+  };
+
+  return (
+    <DefaultLayout>
+      <section className="flex flex-col items-center justify-center min-h-[80vh] via-slate-50 to-slate-200">
+        <div className="w-full max-w-md mx-auto">
+          <div className="rounded-2xl shadow-xl px-8 py-10 flex flex-col gap-6">
+            <div className="mb-2 text-center">
+              <h1 className="text-2xl font-bold text-gray-800 mb-1">Sign in to Zismail Shop</h1>
+              <p className="text-gray-500 text-sm">Enter your credentials to access your account</p>
+            </div>
+            <Form onSubmit={handleEmailLogin} className="flex flex-col gap-4">
+              <Input
+                isRequired
+                errorMessage="Please enter a valid username"
+                label="Username"
+                labelPlacement="outside"
+                name="username"
+                placeholder="Enter your username"
+                type="text"
+                value={username}
+                onChange={e => setUsername(e.target.value)}
+                className="rounded-lg"
+              />
+              <Input
+                isRequired
+                errorMessage="Please enter a valid password"
+                label="Password"
+                labelPlacement="outside"
+                name="password"
+                placeholder="Enter your password"
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                className="rounded-lg"
+              />
+              <div className="flex gap-2 mt-2">
+                <Button color="primary" type="submit" className="w-full font-semibold">
+                  Login
+                </Button>
+              </div>
+              {error && <div className="text-small text-danger text-center">{error}</div>}
+            </Form>
+            <div className="flex items-center gap-2 my-2">
+              <div className="flex-1 h-px bg-slate-200" />
+              <span className="text-xs text-slate-400">or</span>
+              <div className="flex-1 h-px bg-slate-200" />
+            </div>
+            <Button
+              onClick={handleGoogleLogin}
+              color="primary"
+              variant="bordered"
+              className="w-full font-semibold flex items-center justify-center gap-2"
+              startContent={<GoogleIcon />}
+            >
+              Login with Google
+            </Button>
+          </div>
+        </div>
+      </section>
+    </DefaultLayout>
+  );
+}
