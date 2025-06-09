@@ -2,7 +2,8 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Zismail Shop",
-  description: "Zismail Shop is a modern, responsive web application built with Next.js and NextUI, designed to showcase beautiful UI, fast performance, and seamless experience on every device.",
+  description:
+    "Zismail Shop is a modern, responsive web application built with Next.js and NextUI, designed to showcase beautiful UI, fast performance, and seamless experience on every device.",
   navItems: [
     {
       label: "Website",

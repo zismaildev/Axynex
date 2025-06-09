@@ -15,16 +15,16 @@ export default function IndexPage() {
         <div className="w-full max-w-7xl mx-auto px-2">
           <div className="relative isolate overflow-hidden bg-gradient-to-br from-violet-700 via-fuchsia-600 to-pink-500 shadow-2xl rounded-3xl px-6 pt-16 pb-10 sm:px-16 md:pt-24 flex flex-col lg:flex-row items-center gap-10">
             <svg
-              viewBox="0 0 2024 2024"
-              className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
               aria-hidden="true"
+              className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
+              viewBox="0 0 2024 2024"
             >
               <circle
                 cx={512}
                 cy={512}
-                r={512}
                 fill="url(#759c1415-0410-454c-8f7c-9a820de03641)"
                 fillOpacity="0.7"
+                r={512}
               />
               <defs>
                 <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
@@ -38,8 +38,8 @@ export default function IndexPage() {
                 Zismail Shop
               </h2>
               <p className="mt-2 text-lg md:text-xl leading-8 text-white/90 font-medium drop-shadow">
-                This website was created to present my abilities and work by using{" "}
-                <span className="font-bold text-white">Next.js</span>,{" "}
+                This website was created to present my abilities and work by
+                using <span className="font-bold text-white">Next.js</span>,{" "}
                 <span className="font-bold text-white">Next UI</span> and{" "}
                 <span className="font-bold text-white">Vercel</span>. <br />
                 The site is fully responsive and accessible on all devices.
@@ -47,12 +47,12 @@ export default function IndexPage() {
             </div>
             <div className="relative mt-8 h-64 w-full max-w-md flex-shrink-0 lg:mt-0">
               <Image
-                className="rounded-xl shadow-xl object-cover"
-                src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="App screenshot"
                 fill
-                sizes="(max-width: 1024px) 100vw, 1024px"
                 priority
+                alt="App screenshot"
+                className="rounded-xl shadow-xl object-cover"
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
               />
             </div>
           </div>
@@ -85,7 +85,8 @@ export default function IndexPage() {
               className={buttonStyles({
                 variant: "bordered",
                 radius: "full",
-                class: "px-6 py-2 text-base font-semibold flex items-center gap-2",
+                class:
+                  "px-6 py-2 text-base font-semibold flex items-center gap-2",
               })}
               href={siteConfig.links.github}
             >
@@ -95,15 +96,18 @@ export default function IndexPage() {
           </div>
 
           <div className="mt-4">
-            <Snippet hideCopyButton hideSymbol variant="bordered" className="bg-white/70 rounded-lg">
+            <Snippet
+              hideCopyButton
+              hideSymbol
+              className="bg-white/70 rounded-lg"
+              variant="bordered"
+            >
               <span>
                 Get started by editing{" "}
                 <Code color="primary">pages/index.tsx</Code>
               </span>
             </Snippet>
           </div>
-
-
         </div>
       </section>
     </IndexLayout>

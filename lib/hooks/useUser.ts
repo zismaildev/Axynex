@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { supabase } from "@/lib/supabase";
 
 export function useUser() {
@@ -9,6 +10,7 @@ export function useUser() {
   const fetchProfile = async (currentUser: any) => {
     if (!currentUser) {
       setProfile(null);
+
       return;
     }
 
@@ -34,10 +36,12 @@ export function useUser() {
         console.error("Error fetching user:", error.message);
         setUser(null);
         setLoading(false);
+
         return;
       }
 
       const currentUser = data.user;
+
       setUser(currentUser);
       await fetchProfile(currentUser);
       setLoading(false);
@@ -48,9 +52,10 @@ export function useUser() {
     const { data: authListener } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
         const currentUser = session?.user ?? null;
+
         setUser(currentUser);
         await fetchProfile(currentUser);
-      }
+      },
     );
 
     return () => {

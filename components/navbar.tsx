@@ -12,21 +12,15 @@ import {
   DropdownItem,
   Button,
   Avatar,
-  Link
+  Link,
 } from "@heroui/react";
-
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  Logo,
-} from "@/components/icons";
+import { GithubIcon, DiscordIcon, Logo } from "@/components/icons";
 import { useUser } from "@/lib/hooks/useUser";
 import { useLogout } from "@/lib/hooks/useLogout";
 
@@ -42,7 +36,9 @@ export const Navbar = () => {
         <NavbarBrand className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo />
-            <p className="hidden sm:flex basis-1/5 font-bold text-inherit">Zismail Shop</p>
+            <p className="hidden sm:flex basis-1/5 font-bold text-inherit">
+              Zismail Shop
+            </p>
           </NextLink>
         </NavbarBrand>
         {/* End Braner */}
@@ -89,11 +85,18 @@ export const Navbar = () => {
                   color="secondary"
                   name={user.name || user.email || "User"}
                   size="sm"
-                  src={user.avatar_url || "https://i.pravatar.cc/150?u=a04258a2462d826712d"}
+                  src={
+                    user.avatar_url ||
+                    "https://i.pravatar.cc/150?u=a04258a2462d826712d"
+                  }
                 />
               </DropdownTrigger>
               <DropdownMenu aria-label="Profile Actions" variant="flat">
-                <DropdownItem key="profile" className="h-14 gap-2" href={siteConfig.routes.profile}>
+                <DropdownItem
+                  key="profile"
+                  className="h-14 gap-2"
+                  href={siteConfig.routes.profile}
+                >
                   <p className="font-semibold">Signed in as</p>
                   <p className="font-semibold">{user.email}</p>
                 </DropdownItem>
@@ -110,8 +113,8 @@ export const Navbar = () => {
           ) : (
             <Button
               as={NextLink}
-              href={siteConfig.routes.login}
               className="text-sm font-normal text-default-600 bg-default-100"
+              href={siteConfig.routes.login}
               variant="flat"
             >
               Sign in
@@ -137,11 +140,18 @@ export const Navbar = () => {
                   color="secondary"
                   name={user.name || user.email || "User"}
                   size="sm"
-                  src={user.avatar_url || "https://i.pravatar.cc/150?u=a04258a2462d826712d"}
+                  src={
+                    user.avatar_url ||
+                    "https://i.pravatar.cc/150?u=a04258a2462d826712d"
+                  }
                 />
               </DropdownTrigger>
               <DropdownMenu aria-label="Profile Actions" variant="flat">
-                <DropdownItem key="profile" className="h-14 gap-2" href={siteConfig.routes.profile}>
+                <DropdownItem
+                  key="profile"
+                  className="h-14 gap-2"
+                  href={siteConfig.routes.profile}
+                >
                   <p className="font-semibold">Signed in as</p>
                   <p className="font-semibold">{user.email}</p>
                 </DropdownItem>
@@ -158,8 +168,8 @@ export const Navbar = () => {
           ) : (
             <Button
               as={NextLink}
-              href={siteConfig.routes.login}
               className="text-sm font-normal text-default-600 bg-default-100"
+              href={siteConfig.routes.login}
               variant="flat"
             >
               Sign in
