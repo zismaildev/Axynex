@@ -4,6 +4,8 @@ import DefaultLayout from "@/layouts/default";
 import { Form, Input, Button } from "@heroui/react";
 import { GoogleIcon } from "@/components/icons";
 
+import Link from 'next/link';
+
 export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
@@ -27,8 +29,8 @@ export default function LoginPage() {
         <div className="w-full max-w-md mx-auto">
           <div className="rounded-2xl shadow-xl px-8 py-10 flex flex-col gap-6">
             <div className="mb-2 text-center">
-              <h1 className="text-2xl font-bold text-gray-800 mb-1">Sign in to Zismail Shop</h1>
-              <p className="text-gray-500 text-sm">Enter your credentials to access your account</p>
+              <h1 className="text-2xl font-bold mb-1">Sign in to Zismail Shop</h1>
+              <p className="text-sm">Enter your credentials to access your account</p>
             </div>
             <Form onSubmit={handleEmailLogin} className="flex flex-col gap-4">
               <Input
@@ -56,6 +58,9 @@ export default function LoginPage() {
                 className="rounded-lg"
               />
               <div className="flex gap-2 mt-2">
+                <Link href="./forget">Forgot password?</Link>
+              </div>
+              <div className="flex call gap-2 mt-2">
                 <Button color="primary" type="submit" className="w-full font-semibold">
                   Login
                 </Button>

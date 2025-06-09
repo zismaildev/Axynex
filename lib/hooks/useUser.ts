@@ -6,58 +6,55 @@ export function useUser() {
   const [profile, setProfile] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
+  const fetchProfile = async (currentUser: any) => {
+    if (!currentUser) {
+      setProfile(null);
+      return;
+    }
+
+    const { data: profileData, error } = await supabase
+      .from("user_profiles")
+      .select("*")
+      .eq("user_id", currentUser.id)
+      .maybeSingle();
+
+    if (error) {
+      console.error("Error fetching profile:", error.message);
+      setProfile(null);
+    } else {
+      setProfile(profileData);
+    }
+  };
+
   useEffect(() => {
     const getUserAndProfile = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      setUser(user);
+      const { data, error } = await supabase.auth.getUser();
 
-      if (user) {
-        const { data: profileData, error } = await supabase
-          .from("user_profiles")
-          .select("*")
-          .eq("id", user.id)
-          .maybeSingle(); // เปลี่ยนจาก .single() เป็น .maybeSingle()
-
-        if (error) {
-          console.error("Error fetching profile:", error.message);
-        } else {
-          setProfile(profileData);
-        }
+      if (error) {
+        console.error("Error fetching user:", error.message);
+        setUser(null);
+        setLoading(false);
+        return;
       }
 
+      const currentUser = data.user;
+      setUser(currentUser);
+      await fetchProfile(currentUser);
       setLoading(false);
     };
 
     getUserAndProfile();
 
-    const { data: listener } = supabase.auth.onAuthStateChange(
+    const { data: authListener } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
         const currentUser = session?.user ?? null;
         setUser(currentUser);
-
-        if (currentUser) {
-          const { data: profileData, error } = await supabase
-            .from("user_profiles")
-            .select("*")
-            .eq("id", currentUser.id)
-            .maybeSingle(); // เปลี่ยนจาก .single() เป็น .maybeSingle()
-
-          if (error) {
-            console.error("Error fetching profile:", error.message);
-            setProfile(null);
-          } else {
-            setProfile(profileData);
-          }
-        } else {
-          setProfile(null);
-        }
+        await fetchProfile(currentUser);
       }
     );
 
     return () => {
-      listener?.subscription.unsubscribe();
+      authListener?.subscription.unsubscribe();
     };
   }, []);
 

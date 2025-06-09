@@ -5,12 +5,16 @@ export const siteConfig = {
   description: "Zismail Shop is a modern, responsive web application built with Next.js and NextUI, designed to showcase beautiful UI, fast performance, and seamless experience on every device.",
   navItems: [
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Website",
+      href: "/website",
     },
     {
-      label: "Pricing",
+      label: "Games",
       href: "/pricing",
+    },
+    {
+      label: "Docs",
+      href: "/docs",
     },
     {
       label: "Blog",
@@ -59,6 +63,8 @@ export const siteConfig = {
 
   routes: {
     login: "auth/login",
+    forget: "auth/forget",
+    profile: "auth/profile",
   },
 
   links: {
@@ -67,7 +73,6 @@ export const siteConfig = {
     github: "https://github.com/zismaildev",
     discord: "https://discord.gg/vArzFEfTff",
 
-    twitter: "https://twitter.com/hero_ui",
     docs: "https://heroui.com",
     sponsor: "https://patreon.com/jrgarciadev",
   },

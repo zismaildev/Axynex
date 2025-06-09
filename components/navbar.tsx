@@ -70,9 +70,6 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal href={siteConfig.links.twitter} title="Twitter">
-            <TwitterIcon className="text-default-500" />
-          </Link>
           <Link isExternal href={siteConfig.links.discord} title="Discord">
             <DiscordIcon className="text-default-500" />
           </Link>
@@ -96,7 +93,7 @@ export const Navbar = () => {
                 />
               </DropdownTrigger>
               <DropdownMenu aria-label="Profile Actions" variant="flat">
-                <DropdownItem key="profile" className="h-14 gap-2">
+                <DropdownItem key="profile" className="h-14 gap-2" href={siteConfig.routes.profile}>
                   <p className="font-semibold">Signed in as</p>
                   <p className="font-semibold">{user.email}</p>
                 </DropdownItem>
@@ -144,7 +141,7 @@ export const Navbar = () => {
                 />
               </DropdownTrigger>
               <DropdownMenu aria-label="Profile Actions" variant="flat">
-                <DropdownItem key="profile" className="h-14 gap-2">
+                <DropdownItem key="profile" className="h-14 gap-2" href={siteConfig.routes.profile}>
                   <p className="font-semibold">Signed in as</p>
                   <p className="font-semibold">{user.email}</p>
                 </DropdownItem>

@@ -5,7 +5,6 @@ import { button as buttonStyles } from "@heroui/theme";
 import Image from "next/image";
 
 import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import IndexLayout from "@/layouts";
 
@@ -13,7 +12,7 @@ export default function IndexPage() {
   return (
     <IndexLayout>
       <section className="flex flex-col items-center justify-center gap-8 py-8 md:py-14 min-h-[80vh]">
-        <div className="w-full max-w-5xl mx-auto px-2">
+        <div className="w-full max-w-7xl mx-auto px-2">
           <div className="relative isolate overflow-hidden bg-gradient-to-br from-violet-700 via-fuchsia-600 to-pink-500 shadow-2xl rounded-3xl px-6 pt-16 pb-10 sm:px-16 md:pt-24 flex flex-col lg:flex-row items-center gap-10">
             <svg
               viewBox="0 0 2024 2024"
@@ -57,53 +56,54 @@ export default function IndexPage() {
               />
             </div>
           </div>
-        </div>
 
-        <div className="inline-block max-w-xl text-center justify-center mt-8">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-2 tracking-tight">
-            <span className="text-gray-800">Make&nbsp;</span>
-            <span className="text-violet-600">beautiful&nbsp;</span>
-            <span className="text-gray-800">websites</span>
-          </h1>
-          <div className="text-lg md:text-xl text-gray-500 font-medium mb-4">
-            Beautiful, fast and modern React UI library.
+          <div className="inline-block max-w-xl text-center justify-center mt-8">
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-2 tracking-tight">
+              <span className="text-gray-800">Make&nbsp;</span>
+              <span className="text-violet-600">beautiful&nbsp;</span>
+            </h1>
+            <div className="text-lg md:text-xl text-gray-500 font-medium mb-4">
+              Beautiful, fast and modern React UI library.
+            </div>
           </div>
-        </div>
 
-        <div className="flex gap-4 mb-8">
-          <Link
-            isExternal
-            className={buttonStyles({
-              color: "primary",
-              radius: "full",
-              variant: "shadow",
-              class: "px-6 py-2 text-base font-semibold",
-            })}
-            href={siteConfig.links.docs}
-          >
-            Documentation
-          </Link>
-          <Link
-            isExternal
-            className={buttonStyles({
-              variant: "bordered",
-              radius: "full",
-              class: "px-6 py-2 text-base font-semibold flex items-center gap-2",
-            })}
-            href={siteConfig.links.github}
-          >
-            <GithubIcon size={20} />
-            GitHub
-          </Link>
-        </div>
+          <div className="flex gap-4 mb-8">
+            <Link
+              isExternal
+              className={buttonStyles({
+                color: "primary",
+                radius: "full",
+                variant: "shadow",
+                class: "px-6 py-2 text-base font-semibold",
+              })}
+              href={siteConfig.links.docs}
+            >
+              Documentation
+            </Link>
+            <Link
+              isExternal
+              className={buttonStyles({
+                variant: "bordered",
+                radius: "full",
+                class: "px-6 py-2 text-base font-semibold flex items-center gap-2",
+              })}
+              href={siteConfig.links.github}
+            >
+              <GithubIcon size={20} />
+              GitHub
+            </Link>
+          </div>
 
-        <div className="mt-4">
-          <Snippet hideCopyButton hideSymbol variant="bordered" className="bg-white/70 rounded-lg">
-            <span>
-              Get started by editing{" "}
-              <Code color="primary">pages/index.tsx</Code>
-            </span>
-          </Snippet>
+          <div className="mt-4">
+            <Snippet hideCopyButton hideSymbol variant="bordered" className="bg-white/70 rounded-lg">
+              <span>
+                Get started by editing{" "}
+                <Code color="primary">pages/index.tsx</Code>
+              </span>
+            </Snippet>
+          </div>
+
+
         </div>
       </section>
     </IndexLayout>
