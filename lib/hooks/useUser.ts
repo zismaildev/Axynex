@@ -17,7 +17,7 @@ export function useUser() {
     const { data: profileData, error } = await supabase
       .from("user_profiles")
       .select("*")
-      .eq("user_id", currentUser.id)
+      .eq("id", currentUser.id)
       .maybeSingle();
 
     if (error) {
