@@ -35,11 +35,11 @@ export default function IndexPage() {
             </svg>
             <div className="flex-1 flex flex-col justify-center items-start text-left">
               <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 drop-shadow-lg">
-                NEXEN
+                Axynex
               </h2>
               <p className="mt-2 text-lg md:text-xl leading-8 text-white/90 font-medium drop-shadow">
-                   คือระบบจัดการงานและชีวิตส่วนตัวแบบครบวงจร ที่ออกแบบมาสำหรับบุคคลที่ต้องบริหารหลายบทบาทในแต่ละวัน เช่น นักพัฒนา, ฟรีแลนซ์, ผู้ประกอบการ หรือผู้ที่ต้องการระบบจัดการตัวเองที่มีประสิทธิภาพ
-                ด้วยฟีเจอร์ที่ครอบคลุมตั้งแต่ระบบขายสินค้า, การแสดงผลงาน, การบริหารรายรับ-รายจ่าย, ระบบงานที่ต้องทำ (To-do), ไปจนถึงการวิเคราะห์พอร์ตหุ้น NEXEN ช่วยให้คุณสามารถติดตาม ควบคุม และปรับปรุงการดำเนินชีวิตและการทำงานได้จากศูนย์กลางเดียว
+                Axynex คือระบบจัดการงานและชีวิตส่วนตัวแบบครบวงจร ที่ออกแบบมาสำหรับบุคคลที่ต้องบริหารหลายบทบาทในแต่ละวัน เช่น นักพัฒนา, ฟรีแลนซ์, ผู้ประกอบการ หรือผู้ที่ต้องการระบบจัดการตัวเองที่มีประสิทธิภาพ
+                ด้วยฟีเจอร์ที่ครอบคลุมตั้งแต่ระบบขายสินค้า, การแสดงผลงาน, การบริหารรายรับ-รายจ่าย, ระบบงานที่ต้องทำ (To-do), ไปจนถึงการวิเคราะห์พอร์ตหุ้น Axynex ช่วยให้คุณสามารถติดตาม ควบคุม และปรับปรุงการดำเนินชีวิตและการทำงานได้จากศูนย์กลางเดียว
                 รองรับการใช้งานทั้งส่วนบุคคลและธุรกิจ พร้อมโครงสร้างที่ยืดหยุ่น ปลอดภัย และสามารถขยายในอนาคตได้
               </p>
             </div>
@@ -55,56 +55,54 @@ export default function IndexPage() {
             </div>
           </div>
 
-          <div className="inline-block max-w-xl text-center justify-center mt-8">
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-2 tracking-tight">
-              <span className="text-gray-800">Empower&nbsp;</span>
-              <span className="text-violet-600">Your Digital Life</span>
+          <div className="flex flex-col items-center justify-center mt-12">
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight bg-gradient-to-r from-violet-700 via-fuchsia-600 to-pink-500 text-transparent bg-clip-text animate-fade-in text-center">
+              <span className="drop-shadow">Empower&nbsp;</span>
+              <span className="drop-shadow">Your Digital Life</span>
             </h1>
-            <div className="text-lg md:text-xl text-gray-500 font-medium mb-4">
-              NEXEN is an integrated platform for managing your personal workflow, business goals, and digital assets — all from a single, powerful interface.
+            <div className="text-lg md:text-2xl text-gray-600 font-medium mb-6 animate-fade-in delay-100 text-center max-w-xl">
+              Axynex is an integrated platform for managing your personal workflow, business goals, and digital assets — all from a single, powerful interface.
             </div>
-          </div>
-
-          <div className="flex gap-4 mb-8">
-            <Link
-              isExternal
-              className={buttonStyles({
-                color: "primary",
-                radius: "full",
-                variant: "shadow",
-                class: "px-6 py-2 text-base font-semibold",
-              })}
-              href={siteConfig.links.docs}
-            >
-              Documentation
-            </Link>
-            <Link
-              isExternal
-              className={buttonStyles({
-                variant: "bordered",
-                radius: "full",
-                class:
-                  "px-6 py-2 text-base font-semibold flex items-center gap-2",
-              })}
-              href={siteConfig.links.github}
-            >
-              <GithubIcon size={20} />
-              GitHub
-            </Link>
-          </div>
-
-          <div className="mt-4">
-            <Snippet
-              hideCopyButton
-              hideSymbol
-              className="bg-white/70 rounded-lg"
-              variant="bordered"
-            >
-              <span>
-                Get started by editing{" "}
-                <Code color="primary">pages/index.tsx</Code>
-              </span>
-            </Snippet>
+            <div className="flex gap-6 mb-10 justify-center animate-fade-in delay-200">
+              <Link
+                isExternal
+                className={buttonStyles({
+                  color: "primary",
+                  radius: "full",
+                  variant: "shadow",
+                  class: "px-8 py-3 text-lg font-semibold shadow-lg hover:scale-105 transition-transform duration-300",
+                })}
+                href={siteConfig.links.docs}
+              >
+                Documentation
+              </Link>
+              <Link
+                isExternal
+                className={buttonStyles({
+                  variant: "bordered",
+                  radius: "full",
+                  class:
+                    "px-8 py-3 text-lg font-semibold flex items-center gap-2 shadow-lg hover:bg-gray-100/60 transition-colors duration-300",
+                })}
+                href={siteConfig.links.github}
+              >
+                <GithubIcon size={22} />
+                GitHub
+              </Link>
+            </div>
+            <div className="mt-6 flex justify-center animate-fade-in delay-300 w-full">
+              <Snippet
+                hideCopyButton
+                hideSymbol
+                className="bg-white/80 rounded-xl shadow border border-violet-200 px-4 py-3 mx-auto"
+                variant="bordered"
+              >
+                <span>
+                  Get started by editing{" "}
+                  <Code color="primary">pages/index.tsx</Code>
+                </span>
+              </Snippet>
+            </div>
           </div>
         </div>
       </section>

@@ -37,7 +37,7 @@ export const Navbar = () => {
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo />
             <p className="hidden sm:flex basis-1/5 font-bold text-inherit">
-              Zismail Shop
+              Axynex
             </p>
           </NextLink>
         </NavbarBrand>

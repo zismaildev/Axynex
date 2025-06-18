@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Nexen",
+  name: "Axynex",
   description:
-    "Nexen is a professional-grade, all-in-one personal and business management platform. Built with Next.js and NextUI, it integrates tools for product sales, portfolio showcase, financial tracking, task management, and stock monitoring — empowering individuals and teams to streamline work and life in one place.",
+    "Axynex is a professional-grade, all-in-one personal and business management platform. Built with Next.js and NextUI, it integrates tools for product sales, portfolio showcase, financial tracking, task management, and stock monitoring — empowering individuals and teams to streamline work and life in one place.",
   navItems: [
     {
       label: "Website",
