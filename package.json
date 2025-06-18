@@ -1,7 +1,10 @@
 {
-  "name": "Zismail Shop",
-  "version": "2.0.2",
+  "name": "Nexen",
+  "version": "2.0.3",
   "private": true,
+  "author": {
+    "name": "ZismailDev",
+    "email": "nattapong130247@gmail.com"},
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",

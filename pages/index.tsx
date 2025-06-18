@@ -35,14 +35,12 @@ export default function IndexPage() {
             </svg>
             <div className="flex-1 flex flex-col justify-center items-start text-left">
               <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 drop-shadow-lg">
-                Zismail Shop
+                NEXEN
               </h2>
               <p className="mt-2 text-lg md:text-xl leading-8 text-white/90 font-medium drop-shadow">
-                This website was created to present my abilities and work by
-                using <span className="font-bold text-white">Next.js</span>,{" "}
-                <span className="font-bold text-white">Next UI</span> and{" "}
-                <span className="font-bold text-white">Vercel</span>. <br />
-                The site is fully responsive and accessible on all devices.
+                   คือระบบจัดการงานและชีวิตส่วนตัวแบบครบวงจร ที่ออกแบบมาสำหรับบุคคลที่ต้องบริหารหลายบทบาทในแต่ละวัน เช่น นักพัฒนา, ฟรีแลนซ์, ผู้ประกอบการ หรือผู้ที่ต้องการระบบจัดการตัวเองที่มีประสิทธิภาพ
+                ด้วยฟีเจอร์ที่ครอบคลุมตั้งแต่ระบบขายสินค้า, การแสดงผลงาน, การบริหารรายรับ-รายจ่าย, ระบบงานที่ต้องทำ (To-do), ไปจนถึงการวิเคราะห์พอร์ตหุ้น NEXEN ช่วยให้คุณสามารถติดตาม ควบคุม และปรับปรุงการดำเนินชีวิตและการทำงานได้จากศูนย์กลางเดียว
+                รองรับการใช้งานทั้งส่วนบุคคลและธุรกิจ พร้อมโครงสร้างที่ยืดหยุ่น ปลอดภัย และสามารถขยายในอนาคตได้
               </p>
             </div>
             <div className="relative mt-8 h-64 w-full max-w-md flex-shrink-0 lg:mt-0">
@@ -59,11 +57,11 @@ export default function IndexPage() {
 
           <div className="inline-block max-w-xl text-center justify-center mt-8">
             <h1 className="text-4xl md:text-5xl font-extrabold mb-2 tracking-tight">
-              <span className="text-gray-800">Make&nbsp;</span>
-              <span className="text-violet-600">beautiful&nbsp;</span>
+              <span className="text-gray-800">Empower&nbsp;</span>
+              <span className="text-violet-600">Your Digital Life</span>
             </h1>
             <div className="text-lg md:text-xl text-gray-500 font-medium mb-4">
-              Beautiful, fast and modern React UI library.
+              NEXEN is an integrated platform for managing your personal workflow, business goals, and digital assets — all from a single, powerful interface.
             </div>
           </div>
 
