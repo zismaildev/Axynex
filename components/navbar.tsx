@@ -25,7 +25,7 @@ import { useUser } from "@/lib/hooks/useUser";
 import { useLogout } from "@/lib/hooks/useLogout";
 
 export const Navbar = () => {
-  const { user } = useUser();
+  const { user, profile } = useUser();
   const handleLogout = useLogout();
 
   return (
@@ -86,8 +86,8 @@ export const Navbar = () => {
                   name={user.name || user.email || "User"}
                   size="sm"
                   src={
-                    user.avatar_url ||
-                    "https://i.pravatar.cc/150?u=a04258a2462d826712d"
+                    (profile && profile.avatar_url) ? profile.avatar_url :
+                      "https://i.pravatar.cc/150?u=a04258a2462d826712d"
                   }
                 />
               </DropdownTrigger>
@@ -141,8 +141,8 @@ export const Navbar = () => {
                   name={user.name || user.email || "User"}
                   size="sm"
                   src={
-                    user.avatar_url ||
-                    "https://i.pravatar.cc/150?u=a04258a2462d826712d"
+                    (profile && profile.avatar_url) ? profile.avatar_url :
+                      "https://i.pravatar.cc/150?u=a04258a2462d826712d"
                   }
                 />
               </DropdownTrigger>

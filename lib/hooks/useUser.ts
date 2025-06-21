@@ -20,6 +20,9 @@ export function useUser() {
       .eq("id", currentUser.id)
       .maybeSingle();
 
+    // console.log("user id:", currentUser.id);
+    // console.log("profileData:", profileData);
+
     if (error) {
       console.error("Error fetching profile:", error.message);
       setProfile(null);
