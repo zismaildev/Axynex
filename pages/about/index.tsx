@@ -31,7 +31,7 @@ export default function DocsPage() {
             <Divider />
             <CardBody>
               <p className="text-lg md:text-xl text-background leading-relaxed">Axynex คือทีมพัฒนาเทคโนโลยีรุ่นใหม่ ที่รวมตัวกันจากนักสร้างสรรค์ นักพัฒนา และนักแก้ปัญหาผู้หลงใหลในการใช้เทคโนโลยีเพื่อสร้างการเปลี่ยนแปลง<br />
-                เราไม่เพียงแค่สร้างเว็บไซต์หรือระบบหลังบ้าน แต่เรามุ่งเน้น <span className="font-semibold text-violet-500">"ประสบการณ์"</span> ที่มีความหมาย ใช้งานได้จริง และขับเคลื่อนด้วยแนวคิดที่ทันสมัย</p>
+                เราไม่เพียงแค่สร้างเว็บไซต์หรือระบบหลังบ้าน แต่เรามุ่งเน้น <span className="font-semibold text-violet-500">&quot;ประสบการณ์&quot;</span> ที่มีความหมาย ใช้งานได้จริง และขับเคลื่อนด้วยแนวคิดที่ทันสมัย</p>
             </CardBody>
             <Divider />
           </Card>
@@ -43,7 +43,7 @@ export default function DocsPage() {
               </CardHeader>
               <Divider />
               <CardBody>
-                <p className="text-background text-lg">"ทำให้เทคโนโลยีเข้าถึงง่าย ใช้งานได้จริง และส่งต่อพลังให้กับผู้คน"<br />
+                <p className="text-background text-lg">&quot;ทำให้เทคโนโลยีเข้าถึงง่าย ใช้งานได้จริง และส่งต่อพลังให้กับผู้คน&quot;<br />
                   <span className="text-violet-500">เราเชื่อว่าเทคโนโลยีที่ดีควรเป็นเครื่องมือให้ทุกคนก้าวไกลขึ้น</span> ไม่ว่าจะเป็นสตาร์ทอัพ ธุรกิจขนาดเล็ก หรือองค์กรที่ต้องการเปลี่ยนผ่านสู่ยุคดิจิทัล เราพร้อมช่วยให้แนวคิดของคุณกลายเป็นจริง</p>
               </CardBody>
               <Divider />
@@ -88,7 +88,7 @@ export default function DocsPage() {
               <Divider />
               <CardBody>
                 <p className="text-background text-lg">ชื่อ Axynex มาจากการผสมคำที่สื่อถึงความล้ำหน้าและความยืดหยุ่น<br />
-                  เรามองตัวเองเป็นจุดเชื่อมระหว่าง <span className="font-semibold text-violet-500">"แก่นแท้ของความคิด" (Axiom)</span> และ <span className="font-semibold text-violet-500">"เครือข่ายแห่งอนาคต" (Nexus)</span></p>
+                  เรามองตัวเองเป็นจุดเชื่อมระหว่าง <span className="font-semibold text-violet-500">&quot;แก่นแท้ของความคิด&quot; (Axiom)</span> และ <span className="font-semibold text-violet-500">&quot;เครือข่ายแห่งอนาคต&quot; (Nexus)</span></p>
               </CardBody>
               <Divider />
             </Card>
@@ -101,7 +101,7 @@ export default function DocsPage() {
             <Divider />
             <CardBody>
               <blockquote className="italic text-xl md:text-2xl text-background font-semibold border-l-4 border-violet-400 pl-4 py-2 bg-violet-50/50">
-                “เราไม่ได้มาแค่เขียนโค้ด แต่เรามาเพื่อสร้างอนาคตร่วมกัน”
+                &ldquo;เราไม่ได้มาแค่เขียนโค้ด แต่เรามาเพื่อสร้างอนาคตร่วมกัน&rdquo;
               </blockquote>
             </CardBody>
             <Divider />
