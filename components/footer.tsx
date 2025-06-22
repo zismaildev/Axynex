@@ -39,7 +39,7 @@ export default function FooterComp() {
         </span>
         <span className="text-center text-gray-500 dark:text-gray-400 sm:text-center text-sm">
           © {new Date().getFullYear()}{" "}
-          <span className="font-semibold text-gray-700">ZismailDev</span>. All
+          <span className="font-semibold text-violet-700">Axynex</span>. All
           rights reserved.
         </span>
       </div>

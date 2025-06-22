@@ -2,7 +2,7 @@ import { title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 import { Card, CardHeader, CardBody, CardFooter, Divider, Spinner } from "@heroui/react";
 import { useTeamDev } from "@/lib/hooks/useTeamDev";
-import { GithubIcon } from "@/components/icons"; // Import the GithubIcon component
+import { FacebookIcon, GithubIcon, YoutubeIcon, InstagramIcon } from "@/components/icons"; // Import the GithubIcon component
 
 // Contact type for teamdev
 interface Contact {
@@ -178,19 +178,19 @@ export default function DocsPage() {
                                   case 'facebook':
                                     return (
                                       <a key={key} href={value} target="_blank" rel="noopener noreferrer" title="Facebook">
-                                        <span className="text-blue-600">FB</span>
+                                        <FacebookIcon />
                                       </a>
                                     );
                                   case 'instagram':
                                     return (
                                       <a key={key} href={value} target="_blank" rel="noopener noreferrer" title="Instagram">
-                                        <span className="text-pink-500">IG</span>
+                                        <InstagramIcon />
                                       </a>
                                     );
                                   case 'youtube':
                                     return (
                                       <a key={key} href={value} target="_blank" rel="noopener noreferrer" title="YouTube">
-                                        <span className="text-red-500">YT</span>
+                                        <YoutubeIcon />
                                       </a>
                                     );
                                   default:

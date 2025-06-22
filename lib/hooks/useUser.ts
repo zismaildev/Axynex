@@ -16,9 +16,12 @@ export function useUser() {
 
     const { data: profileData, error } = await supabase
       .from("user_profiles")
-      .select("*")
+      .select(
+        "id, username, first_name, last_name, avatar_url, email, password, created_at, now_signin, bio, role_id, roles(name)"
+      )
       .eq("id", currentUser.id)
       .maybeSingle();
+
 
     // console.log("user id:", currentUser.id);
     // console.log("profileData:", profileData);

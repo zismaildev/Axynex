@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Navbar as HeroUINavbar,
   NavbarContent,
@@ -17,6 +18,7 @@ import {
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
+import Image from "next/image";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -26,6 +28,10 @@ import { useLogout } from "@/lib/hooks/useLogout";
 
 export const Navbar = () => {
   const { user, profile } = useUser();
+  // Debug: log profile and role
+  // console.log('[Navbar] user:', user);
+  // console.log('[Navbar] profile:', profile);
+  const isAdmin = profile?.roles?.name === "admin" || profile?.roles?.name === "owner";
   const handleLogout = useLogout();
 
   return (
@@ -101,6 +107,15 @@ export const Navbar = () => {
                   <p className="font-semibold">{user.email}</p>
                 </DropdownItem>
                 <DropdownItem key="settings">My Settings</DropdownItem>
+                <>
+                  {siteConfig.navMenuItems
+                    .filter((item) => !item.adminOnly || isAdmin)
+                    .map((item, index) => (
+                      <DropdownItem key={item.label} href={item.href} textValue={item.label}>
+                        {item.label}
+                      </DropdownItem>
+                    ))}
+                </>
                 <DropdownItem
                   key="logout"
                   color="danger"
@@ -156,6 +171,15 @@ export const Navbar = () => {
                   <p className="font-semibold">{user.email}</p>
                 </DropdownItem>
                 <DropdownItem key="settings">My Settings</DropdownItem>
+                <>
+                  {siteConfig.navMenuItems
+                    .filter((item) => !item.adminOnly || isAdmin)
+                    .map((item, index) => (
+                      <DropdownItem key={item.label} href={item.href} textValue={item.label}>
+                        {item.label}
+                      </DropdownItem>
+                    ))}
+                </>
                 <DropdownItem
                   key="logout"
                   color="danger"
