@@ -27,7 +27,7 @@ export function useUser() {
     // console.log("profileData:", profileData);
 
     if (error) {
-      console.error("Error fetching profile:", error.message);
+      //console.error("Error fetching profile:", error.message);
       setProfile(null);
     } else {
       setProfile(profileData);
@@ -39,7 +39,7 @@ export function useUser() {
       const { data, error } = await supabase.auth.getUser();
 
       if (error) {
-        console.error("Error fetching user:", error.message);
+        //console.error("Error fetching user:", error.message);
         setUser(null);
         setLoading(false);
 
