@@ -16,18 +16,16 @@ export function useUser() {
 
     const { data: profileData, error } = await supabase
       .from("user_profiles")
-      .select(
-        "id, username, first_name, last_name, avatar_url, email, password, created_at, now_signin, bio, role_id, roles(name)"
-      )
+      .select("*") // ลด field เพื่อ debug
       .eq("id", currentUser.id)
-      .maybeSingle();
+      .single();
 
 
-    // console.log("user id:", currentUser.id);
-    // console.log("profileData:", profileData);
+    console.log("user id:", currentUser.id);
+    console.log("profileData:", profileData);
 
     if (error) {
-      //console.error("Error fetching profile:", error.message);
+      console.error("Error fetching profile:", error.message);
       setProfile(null);
     } else {
       setProfile(profileData);
