@@ -10,22 +10,14 @@ export function useUser() {
   const fetchProfile = async (currentUser: any) => {
     if (!currentUser) {
       setProfile(null);
-
       return;
     }
-
     const { data: profileData, error } = await supabase
       .from("user_profiles")
-      .select("*") // ลด field เพื่อ debug
+      .select("*")
       .eq("id", currentUser.id)
       .single();
-
-
-    console.log("user id:", currentUser.id);
-    console.log("profileData:", profileData);
-
     if (error) {
-      console.error("Error fetching profile:", error.message);
       setProfile(null);
     } else {
       setProfile(profileData);
@@ -33,36 +25,30 @@ export function useUser() {
   };
 
   useEffect(() => {
+    let mounted = true;
     const getUserAndProfile = async () => {
-      const { data, error } = await supabase.auth.getUser();
-
-      if (error) {
-        //console.error("Error fetching user:", error.message);
+      const { data: sessionData, error } = await supabase.auth.getSession();
+      if (error || !sessionData?.session?.user) {
         setUser(null);
+        setProfile(null);
         setLoading(false);
-
         return;
       }
-
-      const currentUser = data.user;
-
+      const currentUser = sessionData.session.user;
       setUser(currentUser);
       await fetchProfile(currentUser);
-      setLoading(false);
+      if (mounted) setLoading(false);
     };
-
     getUserAndProfile();
-
     const { data: authListener } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
         const currentUser = session?.user ?? null;
-
         setUser(currentUser);
         await fetchProfile(currentUser);
       },
     );
-
     return () => {
+      mounted = false;
       authListener?.subscription.unsubscribe();
     };
   }, []);
